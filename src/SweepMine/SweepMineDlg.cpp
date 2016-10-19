@@ -53,15 +53,15 @@ CSweepMineDlg::CSweepMineDlg(CWnd* pParent /*=NULL*/)
     m_ppCells         = 0;
 
     //
-    // é»˜è®¤ä¸ºç¬¬ä¸€å…³çš„è®¾ç½®.
+    // Ä¬ÈÏÎªµÚÒ»¹ØµÄÉèÖÃ.
     //
-    m_uWideCellCount  = 10;        // æ¨ªå‘çš„æ ¼å­æ•°.
-    m_uHeighCellCount = 10;        // çºµå‘çš„æ ¼å­æ•°.
-    m_uMineCount      = 10;        // é›·çš„æ•°ç›®.
-    m_uPlayerLevel    = 1;         // ç©å®¶åœ¨ç¬¬ä¸€å…³.
+    m_uWideCellCount  = 10;        // ºáÏòµÄ¸ñ×ÓÊı.
+    m_uHeighCellCount = 10;        // ×İÏòµÄ¸ñ×ÓÊı.
+    m_uMineCount      = 10;        // À×µÄÊıÄ¿.
+    m_uPlayerLevel    = 1;         // Íæ¼ÒÔÚµÚÒ»¹Ø.
 
     //
-    // æ¸¸æˆçŠ¶æ€å‚æ•°.
+    // ÓÎÏ·×´Ì¬²ÎÊı.
     //
     m_bSoundPlay    = TRUE;
     m_bGamePaused   = TRUE;
@@ -69,7 +69,7 @@ CSweepMineDlg::CSweepMineDlg(CWnd* pParent /*=NULL*/)
     m_bFirstClicked = FALSE;
 
     //
-    // è·å–æ¯ä¸€æ ¼å­çš„å¤§å°.
+    // »ñÈ¡Ã¿Ò»¸ñ×ÓµÄ´óĞ¡.
     //
     CBitmap Bitmap;
     BITMAP  BitmapInfo;
@@ -90,8 +90,8 @@ void CSweepMineDlg::DoDataExchange(CDataExchange* pDX)
 void CSweepMineDlg::OnOK()
 {
     //
-    // å±è”½å½“æŒ‰ä¸‹Enteræ—¶çª—å£è‡ªåŠ¨å…³é—­çš„æƒ…å†µ.
-    // æˆ‘ä»¬ç”¨æ–°æ¸¸æˆä»£æ›¿.
+    // ÆÁ±Îµ±°´ÏÂEnterÊ±´°¿Ú×Ô¶¯¹Ø±ÕµÄÇé¿ö.
+    // ÎÒÃÇÓÃĞÂÓÎÏ·´úÌæ.
     //
     NewGame();
 }
@@ -149,7 +149,7 @@ BOOL CSweepMineDlg::OnInitDialog()
     SetIcon(m_hIcon, FALSE);
 
     //
-    // å°†çª—å£ç§»å±…ä¸­å¿ƒ.
+    // ½«´°¿ÚÒÆ¾ÓÖĞĞÄ.
     //
     MoveWindowCenter(
         m_uCellWidth * m_uWideCellCount,
@@ -158,7 +158,7 @@ BOOL CSweepMineDlg::OnInitDialog()
         );
 
     //
-    // å…ˆåˆå§‹åŒ–è‹±é›„æ¦œæ³¨å†Œè¡¨.
+    // ÏÈ³õÊ¼»¯Ó¢ĞÛ°ñ×¢²á±í.
     //
     HKEY hRegKey     = NULL;
     HKEY hPrimaryKey = NULL;
@@ -169,16 +169,16 @@ BOOL CSweepMineDlg::OnInitDialog()
     HKEY hMiddleName, hMiddleTime;
     HKEY hHeighName, hHeighTime;
 
-    //åˆ›å»ºè½¯ä»¶ä¿¡æ¯ä¸­çš„"SweepMine1.0"é”®.è‹¥è¯¥é”®å·²ç»å­˜åœ¨,åˆ™æ‰“å¼€ä¹‹.
+    //´´½¨Èí¼şĞÅÏ¢ÖĞµÄ"SweepMine1.0"¼ü.Èô¸Ã¼üÒÑ¾­´æÔÚ,Ôò´ò¿ªÖ®.
     RegCreateKey(HKEY_LOCAL_MACHINE, _T("Software\\SweepMine1.0"), &hRegKey);
 
-    //åˆ†åˆ«åˆ›å»º(æ‰“å¼€)ä¸‰ä¸ªå­é”®.
+    //·Ö±ğ´´½¨(´ò¿ª)Èı¸ö×Ó¼ü.
     RegCreateKey(hRegKey, Primary, &hPrimaryKey);
     RegCreateKey(hRegKey, Middle, &hMiddleKey);
     RegCreateKey(hRegKey, Heigh, &hHeighKey);
 
     //
-    // åˆ†åˆ«ä¸ºæ¯ä¸ªå­é”®åˆ›å»ºå§“åã€æ—¶é—´é”®.
+    // ·Ö±ğÎªÃ¿¸ö×Ó¼ü´´½¨ĞÕÃû¡¢Ê±¼ä¼ü.
     //
     RegCreateKey(hPrimaryKey, Name, &hPrimaryName);
     RegCreateKey(hPrimaryKey, Used_Times, &hPrimaryTime);
@@ -190,7 +190,7 @@ BOOL CSweepMineDlg::OnInitDialog()
     RegCreateKey(hHeighKey, Used_Times, &hHeighTime);
 
     //
-    // å…³é—­å§“åã€æ—¶é—´é”®.
+    // ¹Ø±ÕĞÕÃû¡¢Ê±¼ä¼ü.
     //
     RegCloseKey(hPrimaryName);
     RegCloseKey(hPrimaryTime);
@@ -231,7 +231,7 @@ void CSweepMineDlg::OnPaint()
 
         SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
 
-        // ä½¿å›¾æ ‡åœ¨å·¥ä½œåŒºçŸ©å½¢ä¸­å±…ä¸­
+        // Ê¹Í¼±êÔÚ¹¤×÷Çø¾ØĞÎÖĞ¾ÓÖĞ
         int cxIcon = GetSystemMetrics(SM_CXICON);
         int cyIcon = GetSystemMetrics(SM_CYICON);
         CRect rect;
@@ -239,7 +239,7 @@ void CSweepMineDlg::OnPaint()
         int x = (rect.Width() - cxIcon + 1) / 2;
         int y = (rect.Height() - cyIcon + 1) / 2;
 
-        // ç»˜åˆ¶å›¾æ ‡
+        // »æÖÆÍ¼±ê
         dc.DrawIcon(x, y, m_hIcon);
     }
     else
@@ -248,7 +248,7 @@ void CSweepMineDlg::OnPaint()
     }
 
     //
-    // ç»˜åˆ¶æ¸¸æˆåœºæ™¯.
+    // »æÖÆÓÎÏ·³¡¾°.
     //
     DrawScance();
 }
@@ -266,7 +266,7 @@ HBRUSH CSweepMineDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 }
 
 
-// æ˜¾ç¤ºå¦‚ä½•æ‰«é›·çš„å¸®åŠ©ä¿¡æ¯.
+// ÏÔÊ¾ÈçºÎÉ¨À×µÄ°ïÖúĞÅÏ¢.
 void CSweepMineDlg::OnHowSweepMine()
 {
     CHowPlayGameDialog HowPlayGame;
@@ -274,7 +274,7 @@ void CSweepMineDlg::OnHowSweepMine()
 }
 
 
-// æ˜¾ç¤ºä½œè€…ä¿¡æ¯.
+// ÏÔÊ¾×÷ÕßĞÅÏ¢.
 void CSweepMineDlg::OnAuthorInfo()
 {
     CAuthorDialog AuthorDialog;
@@ -282,7 +282,7 @@ void CSweepMineDlg::OnAuthorInfo()
 }
 
 
-// æ˜¾ç¤ºè½¯ä»¶ä¿¡æ¯.
+// ÏÔÊ¾Èí¼şĞÅÏ¢.
 void CSweepMineDlg::OnAboutSoft()
 {
     CAboutDlg AboutSoftDialog;
@@ -290,7 +290,7 @@ void CSweepMineDlg::OnAboutSoft()
 }
 
 
-// æ˜¾ç¤ºè‹±é›„æ¦œ.
+// ÏÔÊ¾Ó¢ĞÛ°ñ.
 void CSweepMineDlg::OnViewHero()
 {
     CHeroPageDialog HeroPageDialog;
@@ -298,7 +298,7 @@ void CSweepMineDlg::OnViewHero()
 }
 
 
-// é€€å‡ºæ¸¸æˆ.
+// ÍË³öÓÎÏ·.
 void CSweepMineDlg::OnQuitGame()
 {
     PostMessage(WM_CLOSE);
@@ -307,7 +307,7 @@ void CSweepMineDlg::OnQuitGame()
 
 void CSweepMineDlg::OnClose()
 {
-    if (IDYES == MessageBox(_T("ä½ çœŸçš„è¦é€€å‡ºå—?"), _T("é€€å‡º"), MB_YESNO | MB_ICONWARNING))
+    if (IDYES == MessageBox(_T("ÄãÕæµÄÒªÍË³öÂğ?"), _T("ÍË³ö"), MB_YESNO | MB_ICONWARNING))
     {
         EndGame();
         CDialog::OnClose();
@@ -315,14 +315,14 @@ void CSweepMineDlg::OnClose()
 }
 
 
-// èœå•å¼€å§‹æ–°æ¸¸æˆ.
+// ²Ëµ¥¿ªÊ¼ĞÂÓÎÏ·.
 void CSweepMineDlg::OnNewGame()
 {
     NewGame();
 }
 
 
-// èœå•æš‚åœæ¸¸æˆ.
+// ²Ëµ¥ÔİÍ£ÓÎÏ·.
 void CSweepMineDlg::OnPauseGame()
 {
     if (m_bGamePaused)
@@ -345,7 +345,7 @@ void CSweepMineDlg::OnPrimary()
     m_uWideCellCount  = 10;
     m_uHeighCellCount = 10;
     m_uMineCount      = 10;
-    m_uPlayerLevel    = 1;            // ç©å®¶åœ¨ç¬¬ä¸€å…³.
+    m_uPlayerLevel    = 1;            // Íæ¼ÒÔÚµÚÒ»¹Ø.
 
     CMenu* pMenu = GetMenu()->GetSubMenu(0);
     pMenu->CheckMenuItem(ID_PRIMARY, MF_BYCOMMAND | MF_CHECKED);
@@ -356,14 +356,14 @@ void CSweepMineDlg::OnPrimary()
 }
 
 
-void CSweepMineDlg::OnMiddle()        // ä¸­çº§.
+void CSweepMineDlg::OnMiddle()        // ÖĞ¼¶.
 {
-    EndGame();                        // å…ˆé‡Šæ”¾å·²ç»åˆ†é…çš„å†…å­˜.
+    EndGame();                        // ÏÈÊÍ·ÅÒÑ¾­·ÖÅäµÄÄÚ´æ.
 
     m_uWideCellCount  = 15;
     m_uHeighCellCount = 15;
     m_uMineCount      = 30;
-    m_uPlayerLevel    = 2;            // ç©å®¶åœ¨ç¬¬äºŒå…³.
+    m_uPlayerLevel    = 2;            // Íæ¼ÒÔÚµÚ¶ş¹Ø.
 
     CMenu* pMenu = GetMenu()->GetSubMenu(0);
     pMenu->CheckMenuItem(ID_PRIMARY, MF_BYCOMMAND | MF_UNCHECKED);
@@ -374,14 +374,14 @@ void CSweepMineDlg::OnMiddle()        // ä¸­çº§.
 }
 
 
-void CSweepMineDlg::OnHeigh()         // é«˜çº§.
+void CSweepMineDlg::OnHeigh()         // ¸ß¼¶.
 {
-    EndGame();                        // å…ˆé‡Šæ”¾å·²ç»åˆ†é…çš„å†…å­˜.
+    EndGame();                        // ÏÈÊÍ·ÅÒÑ¾­·ÖÅäµÄÄÚ´æ.
 
     m_uWideCellCount  = 20;
     m_uHeighCellCount = 16;
     m_uMineCount      = 50;
-    m_uPlayerLevel    = 3;            // ç©å®¶åœ¨ç¬¬ä¸‰å…³.
+    m_uPlayerLevel    = 3;            // Íæ¼ÒÔÚµÚÈı¹Ø.
 
     CMenu* pMenu = GetMenu()->GetSubMenu(0);
     pMenu->CheckMenuItem(ID_PRIMARY, MF_BYCOMMAND | MF_UNCHECKED);
@@ -392,7 +392,7 @@ void CSweepMineDlg::OnHeigh()         // é«˜çº§.
 }
 
 
-// è‡ªå®šä¹‰æ¸¸æˆ.
+// ×Ô¶¨ÒåÓÎÏ·.
 void CSweepMineDlg::OnUserDefine()
 {
     CSettingDialog UserSetDialog;
@@ -402,14 +402,14 @@ void CSweepMineDlg::OnUserDefine()
         m_uWideCellCount  = UserSetDialog.m_uWidthCount;
         m_uHeighCellCount = UserSetDialog.m_uHeighCount;
         m_uMineCount      = UserSetDialog.m_uMineCount;
-        m_uPlayerLevel    = 0;        //ç©å®¶ä¸å†é¢„è®¾çš„ä»»ä½•ä¸€å…³.
+        m_uPlayerLevel    = 0;        //Íæ¼Ò²»ÔÙÔ¤ÉèµÄÈÎºÎÒ»¹Ø.
 
-        NewGame(TRUE);                //é‡æ–°è·å–æ•°æ®åå³å¯å¼€å§‹æ–°æ¸¸æˆ.
+        NewGame(TRUE);                //ÖØĞÂ»ñÈ¡Êı¾İºó¼´¿É¿ªÊ¼ĞÂÓÎÏ·.
     }
 }
 
 
-// æ˜¯å¦åœ¨æ¸¸æˆåŒæ—¶æ’­æ”¾å£°éŸ³.
+// ÊÇ·ñÔÚÓÎÏ·Í¬Ê±²¥·ÅÉùÒô.
 void CSweepMineDlg::OnSound()
 {
     if (m_bSoundPlay)
@@ -428,7 +428,7 @@ void CSweepMineDlg::OnSound()
 void CSweepMineDlg::MoveWindowCenter(const UINT& uWidth, const UINT& uHeight, BOOL bCenter /*=FALSE*/)
 {
     //
-    // å°†çª—å£æ”¹å˜å¤§å°,å¹¶å°†ä¹‹ç§»åˆ°ä¸­å¤®.
+    // ½«´°¿Ú¸Ä±ä´óĞ¡,²¢½«Ö®ÒÆµ½ÖĞÑë.
     //
     UINT x = ::GetSystemMetrics(SM_CXSCREEN);
     UINT y = ::GetSystemMetrics(SM_CYSCREEN);
@@ -439,7 +439,7 @@ void CSweepMineDlg::MoveWindowCenter(const UINT& uWidth, const UINT& uHeight, BO
 
     if (bCenter)
     {
-        // å°†çª—å£ç§»å±…ä¸­å¿ƒ.
+        // ½«´°¿ÚÒÆ¾ÓÖĞĞÄ.
         SetWindowPos(
             NULL,
             (x - uWindowWidth) / 2,
@@ -451,7 +451,7 @@ void CSweepMineDlg::MoveWindowCenter(const UINT& uWidth, const UINT& uHeight, BO
     }
     else
     {
-        // ä¸æ”¹å˜çª—å£çš„ä½ç½®.
+        // ²»¸Ä±ä´°¿ÚµÄÎ»ÖÃ.
         SetWindowPos(
             NULL,
             0,
@@ -467,17 +467,17 @@ void CSweepMineDlg::MoveWindowCenter(const UINT& uWidth, const UINT& uHeight, BO
 void CSweepMineDlg::NewGame(BOOL bCenterWnd /*= FALSE*/)
 {
     //
-    // å…³é—­è®¡æ—¶å™¨--å¦‚æœå®ƒè¿˜æ²¡è¢«å…³é—­çš„è¯.
+    // ¹Ø±Õ¼ÆÊ±Æ÷--Èç¹ûËü»¹Ã»±»¹Ø±ÕµÄ»°.
     //
     KillTimer(Game_Timer);
 
     //
-    // æ”¹å˜çª—å£å¤§å°,å¹¶å°†ä¹‹ç§»åˆ°ä¸­å¿ƒ.
+    // ¸Ä±ä´°¿Ú´óĞ¡,²¢½«Ö®ÒÆµ½ÖĞĞÄ.
     //
     MoveWindowCenter(m_uCellWidth * m_uWideCellCount, m_uCellHeight * m_uHeighCellCount, bCenterWnd);
 
     //
-    // ä½¿æŒ‰é’®å¯è§.å¹¶ä½¿ä¹‹ç§»åˆ°ä¸­å¤®.
+    // Ê¹°´Å¥¿É¼û.²¢Ê¹Ö®ÒÆµ½ÖĞÑë.
     //
     m_NewGameBtn.LoadBitmaps(IDB_READY, IDB_WILL_RESULT);
     m_NewGameBtn.ShowWindow(SW_SHOW);
@@ -491,7 +491,7 @@ void CSweepMineDlg::NewGame(BOOL bCenterWnd /*= FALSE*/)
         );
 
     //
-    // åˆ†é…æ¸¸æˆå†…å­˜.
+    // ·ÖÅäÓÎÏ·ÄÚ´æ.
     //
     try
     {
@@ -504,29 +504,29 @@ void CSweepMineDlg::NewGame(BOOL bCenterWnd /*= FALSE*/)
     }
     catch(...)
     {
-        MessageBox(_T("ç³»ç»Ÿå†…å­˜åˆ†é…å¤±è´¥,ç¨‹åºå³å°†é€€å‡º!"), _T("é”™è¯¯"), MB_OK | MB_ICONWARNING);
+        MessageBox(_T("ÏµÍ³ÄÚ´æ·ÖÅäÊ§°Ü,³ÌĞò¼´½«ÍË³ö!"), _T("´íÎó"), MB_OK | MB_ICONWARNING);
         EndGame();
-        PostQuitMessage(0);           // é€€å‡ºç¨‹åº.
+        PostQuitMessage(0);           // ÍË³ö³ÌĞò.
     }
 
     //
-    // æ¸¸æˆçŠ¶æ€å‚æ•°è®¾ç½®.
+    // ÓÎÏ·×´Ì¬²ÎÊıÉèÖÃ.
     //
-    m_bGamePaused = FALSE;            // æ¸¸æˆæ²¡æœ‰æš‚åœ.
-    m_bPlayerFailed = FALSE;          // ç©å®¶æ²¡æœ‰å¤±è´¥.
-    m_bFirstClicked = FALSE;          // ç¬¬ä¸€æ¬¡å•å‡»è¿˜æ²¡æœ‰è½ä¸‹.
+    m_bGamePaused = FALSE;            // ÓÎÏ·Ã»ÓĞÔİÍ£.
+    m_bPlayerFailed = FALSE;          // Íæ¼ÒÃ»ÓĞÊ§°Ü.
+    m_bFirstClicked = FALSE;          // µÚÒ»´Îµ¥»÷»¹Ã»ÓĞÂäÏÂ.
 
-    m_uClickedCount = 0;              // å·²ç»å•å‡»è¿‡çš„ä¸ªæ•°ç½®ä¸º0.
-    m_uCheckedCount = 0;              // å·²ç»æ ‡è®°çš„ä¸ªæ•°ç½®ä¸º0.
-    m_dwUsedTime = 0;                 // æ¸¸æˆè®¡æ—¶ç½®ä¸º0.
+    m_uClickedCount = 0;              // ÒÑ¾­µ¥»÷¹ıµÄ¸öÊıÖÃÎª0.
+    m_uCheckedCount = 0;              // ÒÑ¾­±ê¼ÇµÄ¸öÊıÖÃÎª0.
+    m_dwUsedTime = 0;                 // ÓÎÏ·¼ÆÊ±ÖÃÎª0.
 
-    m_FailedPoint.x = -1;             // å¤±è´¥ä½ç½®åˆå§‹åŒ–.
+    m_FailedPoint.x = -1;             // Ê§°ÜÎ»ÖÃ³õÊ¼»¯.
     m_FailedPoint.y = -1;
 
-    //å°†æš‚åœèœå•æ ‡è®°ä¸ºå¯ç”¨.
+    //½«ÔİÍ£²Ëµ¥±ê¼ÇÎª¿ÉÓÃ.
     GetMenu()->GetSubMenu(0)->EnableMenuItem(ID_PAUSE_GAME, FALSE);
 
-    Invalidate();                     // åˆ·æ–°çª—å£ä½¿ä¹‹é‡ç»˜.
+    Invalidate();                     // Ë¢ĞÂ´°¿ÚÊ¹Ö®ÖØ»æ.
 }
 
 
@@ -545,16 +545,16 @@ void CSweepMineDlg::EndGame()
 }
 
 
-// ç»˜åˆ¶æ¸¸æˆåœºæ™¯.
+// »æÖÆÓÎÏ·³¡¾°.
 void CSweepMineDlg::DrawScance()
 {
-    DrawTimer();                      // å…ˆç»˜åˆ¶è®¡æ—¶å™¨.
-    DrawCkeckedCount();               // å†ç»˜åˆ¶æ——æ ‡æ•°ç›®.
+    DrawTimer();                      // ÏÈ»æÖÆ¼ÆÊ±Æ÷.
+    DrawCkeckedCount();               // ÔÙ»æÖÆÆì±êÊıÄ¿.
 
-    CClientDC dc(this);               // ç»˜åˆ¶åœºæ™¯DC.
-    CDC       CompatiDC;              // å…¼å®¹DC.
+    CClientDC dc(this);               // »æÖÆ³¡¾°DC.
+    CDC       CompatiDC;              // ¼æÈİDC.
 
-    POINT Point;                      // æ›´æ”¹è§†å£åŸç‚¹.
+    POINT Point;                      // ¸ü¸ÄÊÓ¿ÚÔ­µã.
     Point.x = m_cuxOffset;
     Point.y = m_cuyOffset;
     dc.SetViewportOrg(Point);
@@ -565,13 +565,13 @@ void CSweepMineDlg::DrawScance()
     {
         for (int j = 0; j != m_uHeighCellCount; ++j)
         {
-            CBitmap Bitmap;           // ä½å›¾å¯¹è±¡.
+            CBitmap Bitmap;           // Î»Í¼¶ÔÏó.
 
             if (!m_bPlayerFailed)
             {
                 if (m_ppCells[i][j].m_bChecked)
                 {
-                    // æ­¤ä½ç½®å·²ç»æ ‡è®°,åˆ™æ˜¾ç¤º"æ——å­"æ ‡è®°å›¾åƒ.
+                    // ´ËÎ»ÖÃÒÑ¾­±ê¼Ç,ÔòÏÔÊ¾"Æì×Ó"±ê¼ÇÍ¼Ïñ.
                     Bitmap.LoadBitmap(IDB_CHECKED_FLAG);
                     CompatiDC.SelectObject(Bitmap);
 
@@ -639,16 +639,16 @@ void CSweepMineDlg::DrawScance()
 
             switch (m_ppCells[i][j].m_iStatus)
             {
-            case ISMine:             // æœ¬ä½ç½®æ˜¯é›·.
+            case ISMine:             // ±¾Î»ÖÃÊÇÀ×.
                 if (m_bPlayerFailed)
                 {
                     if (i == m_FailedPoint.x && j == m_FailedPoint.y)
                     {
-                        Bitmap.LoadBitmap(IDB_EXPLOSION);     // åŠ è½½çˆ†ç‚¸åœ°é›·ä½å›¾.
+                        Bitmap.LoadBitmap(IDB_EXPLOSION);     // ¼ÓÔØ±¬Õ¨µØÀ×Î»Í¼.
                     }
                     else
                     {
-                        Bitmap.LoadBitmap(IDB_CELL);          // åŠ è½½æ™®é€šåœ°é›·ä½å›¾.
+                        Bitmap.LoadBitmap(IDB_CELL);          // ¼ÓÔØÆÕÍ¨µØÀ×Î»Í¼.
                     }
                 }
                 else
@@ -657,39 +657,39 @@ void CSweepMineDlg::DrawScance()
                 }
                 break;
 
-            case No_Mine:            // æœ¬ä½ç½®å‘¨å›´æ— é›·.
+            case No_Mine:            // ±¾Î»ÖÃÖÜÎ§ÎŞÀ×.
                 Bitmap.LoadBitmap(IDB_BLANK);
                 break;
 
-            case One_Mine:           // æœ¬ä½ç½®å‘¨å›´æœ‰1é¢—ç±».
+            case One_Mine:           // ±¾Î»ÖÃÖÜÎ§ÓĞ1¿ÅÀà.
                 Bitmap.LoadBitmap(IDB_ONE_CELL);
                 break;
 
-            case Two_Mines:          // æœ¬ä½ç½®å‘¨å›´æœ‰2é¢—ç±».
+            case Two_Mines:          // ±¾Î»ÖÃÖÜÎ§ÓĞ2¿ÅÀà.
                 Bitmap.LoadBitmap(IDB_TWO_CELL);
                 break;
 
-            case Three_Mines:        // æœ¬ä½ç½®å‘¨å›´æœ‰3é¢—ç±».
+            case Three_Mines:        // ±¾Î»ÖÃÖÜÎ§ÓĞ3¿ÅÀà.
                 Bitmap.LoadBitmap(IDB_THREE_CELL);
                 break;
 
-            case Four_Mines:         // æœ¬ä½ç½®å‘¨å›´æœ‰4é¢—ç±».
+            case Four_Mines:         // ±¾Î»ÖÃÖÜÎ§ÓĞ4¿ÅÀà.
                 Bitmap.LoadBitmap(IDB_FOUR_CELL);
                 break;
 
-            case Five_Mines:         // æœ¬ä½ç½®å‘¨å›´æœ‰5é¢—ç±».
+            case Five_Mines:         // ±¾Î»ÖÃÖÜÎ§ÓĞ5¿ÅÀà.
                 Bitmap.LoadBitmap(IDB_FIVE_CELL);
                 break;
 
-            case Six_Mines:          // æœ¬ä½ç½®å‘¨å›´æœ‰6é¢—ç±».
+            case Six_Mines:          // ±¾Î»ÖÃÖÜÎ§ÓĞ6¿ÅÀà.
                 Bitmap.LoadBitmap(IDB_SIX_CELL);
                 break;
 
-            case Seven_Mines:        // æœ¬ä½ç½®å‘¨å›´æœ‰7é¢—ç±».
+            case Seven_Mines:        // ±¾Î»ÖÃÖÜÎ§ÓĞ7¿ÅÀà.
                 Bitmap.LoadBitmap(IDB_SEVEN_CELL);
                 break;
 
-            case Eight_Mines:        // æœ¬ä½ç½®å‘¨å›´æœ‰8é¢—ç±».
+            case Eight_Mines:        // ±¾Î»ÖÃÖÜÎ§ÓĞ8¿ÅÀà.
                 Bitmap.LoadBitmap(IDB_EIGHT_CELL);
                 break;
             }
@@ -721,8 +721,8 @@ void CSweepMineDlg::OnRButtonDown(UINT nFlags, CPoint point)
             return ;
 
         //
-        // å•å‡»ä½ç½®å¦‚æœæœªæ ‡è®°,åˆ™æ ‡è®°ä¹‹.
-        // å¦åˆ™å–æ¶ˆæ ‡è®°.
+        // µ¥»÷Î»ÖÃÈç¹ûÎ´±ê¼Ç,Ôò±ê¼ÇÖ®.
+        // ·ñÔòÈ¡Ïû±ê¼Ç.
         //
         if (!m_ppCells[i][j].m_bClicked)
         {
@@ -735,14 +735,14 @@ void CSweepMineDlg::OnRButtonDown(UINT nFlags, CPoint point)
                     );
             }
 
-            if (m_ppCells[i][j].m_bChecked)          // å¦‚æœå·²ç»æ ‡è®°.
+            if (m_ppCells[i][j].m_bChecked)          // Èç¹ûÒÑ¾­±ê¼Ç.
             {
-                --m_uCheckedCount;                   // å°†å·²æ ‡è®°çš„æ•°ç›®å‡1.
-                m_ppCells[i][j].m_bChecked = FALSE;  // å°†æ­¤ä½ç½®è®¾ç½®ä¸ºæœªæ ‡è®°.
+                --m_uCheckedCount;                   // ½«ÒÑ±ê¼ÇµÄÊıÄ¿¼õ1.
+                m_ppCells[i][j].m_bChecked = FALSE;  // ½«´ËÎ»ÖÃÉèÖÃÎªÎ´±ê¼Ç.
             }
             else
             {
-                ++m_uCheckedCount;                   // å°†å·²æ ‡è®°æ•°ç›®åŠ 1.
+                ++m_uCheckedCount;                   // ½«ÒÑ±ê¼ÇÊıÄ¿¼Ó1.
                 m_ppCells[i][j].m_bChecked = TRUE;
             }
 
@@ -767,7 +767,7 @@ void CSweepMineDlg::OnLButtonDown(UINT nFlags, CPoint point)
     if (!m_bPlayerFailed)
     {
         //
-        // æ›´æ”¹æŒ‰é’®å°å¤´åƒçš„æ˜¾ç¤º.
+        // ¸ü¸Ä°´Å¥Ğ¡Í·ÏñµÄÏÔÊ¾.
         //
         m_NewGameBtn.LoadBitmaps(IDB_WILL_RESULT);
         m_NewGameBtn.Invalidate();
@@ -778,7 +778,7 @@ void CSweepMineDlg::OnLButtonDown(UINT nFlags, CPoint point)
         if (i < 0 || i >= m_uWideCellCount || j < 0 || j >= m_uHeighCellCount)
             return ;
 
-        m_bGamePaused = FALSE;                // æ ‡è®°ä¸ºæ¸¸æˆæœªæš‚åœ.
+        m_bGamePaused = FALSE;                // ±ê¼ÇÎªÓÎÏ·Î´ÔİÍ£.
         GetMenu()->GetSubMenu(0)->CheckMenuItem(ID_PAUSE_GAME, MF_BYCOMMAND | MF_UNCHECKED);
 
         CBitmap   Bitmap;
@@ -787,19 +787,19 @@ void CSweepMineDlg::OnLButtonDown(UINT nFlags, CPoint point)
 
         point.x = m_cuxOffset;
         point.y = m_cuyOffset;
-        dc.SetViewportOrg(point);             // é‡æ–°è®¾ç½®è§†å£åŸç‚¹.
+        dc.SetViewportOrg(point);             // ÖØĞÂÉèÖÃÊÓ¿ÚÔ­µã.
 
-        CompatiDC.CreateCompatibleDC(&dc);    // åœºåˆ›å»ºè´´å›¾å…¼å®¹DC.
+        CompatiDC.CreateCompatibleDC(&dc);    // ³¡´´½¨ÌùÍ¼¼æÈİDC.
 
-        if (!m_bFirstClicked)                  // è¿™æ˜¯ç¬¬ä¸€æ¬¡å•å‡»,å¼€å§‹å¸ƒé›·,è¦ç¡®ä¿ä¸æ­».
+        if (!m_bFirstClicked)                  // ÕâÊÇµÚÒ»´Îµ¥»÷,¿ªÊ¼²¼À×,ÒªÈ·±£²»ËÀ.
         {
-            // è®¾ç½®æ¯ç§’ä¸€æ¬¡çš„è®¡æ—¶å™¨.å¼€å§‹è®¡æ—¶.
+            // ÉèÖÃÃ¿ÃëÒ»´ÎµÄ¼ÆÊ±Æ÷.¿ªÊ¼¼ÆÊ±.
             SetTimer(Game_Timer, 1000, NULL);
 
             //
-            // åœ¨é™¤äº†æœ¬ä½ç½®ä¹‹å¤–çš„åœ°æ–¹éšæœºæ”¾ç½®åœ°é›·.
+            // ÔÚ³ıÁË±¾Î»ÖÃÖ®ÍâµÄµØ·½Ëæ»ú·ÅÖÃµØÀ×.
             //
-            srand((unsigned int)time(NULL));  // åˆå§‹åŒ–éšæœºæ•°ç”Ÿæˆå™¨.
+            srand((unsigned int)time(NULL));  // ³õÊ¼»¯Ëæ»úÊıÉú³ÉÆ÷.
             for (int MineIndex = 0; MineIndex != m_uMineCount; ++MineIndex)
             {
                 while(TRUE)
@@ -807,7 +807,7 @@ void CSweepMineDlg::OnLButtonDown(UINT nFlags, CPoint point)
                     int xPos = rand() % m_uWideCellCount;
                     int yPos = rand() % m_uHeighCellCount;
 
-                    // å¦‚æœéšæœºç”Ÿæˆçš„ä½ç½®è¿˜æ²¡æœ‰é›·,åˆ™æ”¾ç½®ä¸€é¢—é›·.
+                    // Èç¹ûËæ»úÉú³ÉµÄÎ»ÖÃ»¹Ã»ÓĞÀ×,Ôò·ÅÖÃÒ»¿ÅÀ×.
                     if (m_ppCells[xPos][yPos].m_iStatus != ISMine && xPos != i && yPos != j)
                     {
                         m_ppCells[xPos][yPos].m_iStatus = ISMine;
@@ -816,15 +816,15 @@ void CSweepMineDlg::OnLButtonDown(UINT nFlags, CPoint point)
                 }
             }
 
-            ComputeCellSpread();            // å¸ƒé›·å¹¶è®¡ç®—åœ°é›·åˆ†å¸ƒ.
-            m_bFirstClicked = TRUE;         // ç¬¬ä¸€æ¬¡å•å‡»å·²ç»å®Œæˆ.
+            ComputeCellSpread();            // ²¼À×²¢¼ÆËãµØÀ×·Ö²¼.
+            m_bFirstClicked = TRUE;         // µÚÒ»´Îµ¥»÷ÒÑ¾­Íê³É.
         }
 
-        if (m_ppCells[i][j].m_bChecked)     // å¦‚æœæ­¤ä½ç½®å·²ç»è®¾ç½®æ ‡è®°,åˆ™æ˜¾ç¤º"å•å‡»æ ‡è®°"å›¾åƒ.
+        if (m_ppCells[i][j].m_bChecked)     // Èç¹û´ËÎ»ÖÃÒÑ¾­ÉèÖÃ±ê¼Ç,ÔòÏÔÊ¾"µ¥»÷±ê¼Ç"Í¼Ïñ.
         {
             if (m_bSoundPlay)
             {
-                MessageBeep(MB_OK);         // æ’­æ”¾æ— æ³•æ“ä½œå£°éŸ³.
+                MessageBeep(MB_OK);         // ²¥·ÅÎŞ·¨²Ù×÷ÉùÒô.
             }
 
             Bitmap.LoadBitmap(IDB_CLICK_CHECKED_FLAG);
@@ -844,7 +844,7 @@ void CSweepMineDlg::OnLButtonDown(UINT nFlags, CPoint point)
         }
 
         //
-        // å¦‚æœæ­¤ä½ç½®æ²¡è¢«å•å‡»æˆ–è€…è¢«å•å‡»è¿‡ä¸”å‘¨å›´æ— é›·,åˆ™åŠ è½½"å•å‡»ç©ºç™½"å›¾åƒ.
+        // Èç¹û´ËÎ»ÖÃÃ»±»µ¥»÷»òÕß±»µ¥»÷¹ıÇÒÖÜÎ§ÎŞÀ×,Ôò¼ÓÔØ"µ¥»÷¿Õ°×"Í¼Ïñ.
         //
         if (!m_ppCells[i][j].m_bClicked ||
             (m_ppCells[i][j].m_bClicked &&
@@ -865,11 +865,11 @@ void CSweepMineDlg::OnLButtonDown(UINT nFlags, CPoint point)
         }
 
         //
-        // å¦‚æœæ­¤ä½ç½®å‘¨å›´æœ‰é›·ä¸”å·²ç»è¢«å•å‡»,åˆ™å°†å‘¨å›´çš„èŒƒå›´æ ‡å‡ºæ¥.
+        // Èç¹û´ËÎ»ÖÃÖÜÎ§ÓĞÀ×ÇÒÒÑ¾­±»µ¥»÷,Ôò½«ÖÜÎ§µÄ·¶Î§±ê³öÀ´.
         //
         if (m_ppCells[i][j].m_bClicked && m_ppCells[i][j].m_iStatus != No_Mine)
         {
-            int iCheckedRightCount(0);                   // å‘¨å›´æ ‡è®°å¯¹çš„è®¡æ•°å™¨.
+            int iCheckedRightCount(0);                   // ÖÜÎ§±ê¼Ç¶ÔµÄ¼ÆÊıÆ÷.
 
             for (int xPos = i - 1; xPos < i + 2; ++xPos)
             {
@@ -897,7 +897,7 @@ void CSweepMineDlg::OnLButtonDown(UINT nFlags, CPoint point)
 
                             if (m_ppCells[xPos][yPos].m_bChecked && m_ppCells[xPos][yPos].m_iStatus == ISMine)
                             {
-                                ++iCheckedRightCount;    // å¦‚æœå‘¨å›´æœ‰æ ‡è®°å¯¹çš„é›·,åˆ™å°†è®¡æ•°å™¨åŠ 1.
+                                ++iCheckedRightCount;    // Èç¹ûÖÜÎ§ÓĞ±ê¼Ç¶ÔµÄÀ×,Ôò½«¼ÆÊıÆ÷¼Ó1.
                             }
                         }
                     }
@@ -905,8 +905,8 @@ void CSweepMineDlg::OnLButtonDown(UINT nFlags, CPoint point)
             } // xPos For end here.
 
             //
-            // æ£€éªŒæ­¤ä½ç½®å‘¨å›´æ ‡è®°çš„é›·çš„æ•°ç›®æ˜¯å¦æ­£ç¡®.
-            // å¦‚æœæ­£ç¡®,åˆ™å°†å…¶å‘¨å›´çš„æ‰©å±•å¼€æ¥.
+            // ¼ìÑé´ËÎ»ÖÃÖÜÎ§±ê¼ÇµÄÀ×µÄÊıÄ¿ÊÇ·ñÕıÈ·.
+            // Èç¹ûÕıÈ·,Ôò½«ÆäÖÜÎ§µÄÀ©Õ¹¿ªÀ´.
             //
             if (m_ppCells[i][j].m_iStatus == iCheckedRightCount)
             {
@@ -921,14 +921,14 @@ void CSweepMineDlg::OnLButtonDown(UINT nFlags, CPoint point)
                                 if (!m_ppCells[xPos][yPos].m_bChecked && !m_ppCells[xPos][yPos].m_bClicked)
                                 {
                                     m_ppCells[xPos][yPos].m_bClicked = TRUE;
-                                    ++m_uClickedCount;   // å°†å•å‡»è¿‡çš„æ•°ç›®åŠ 1.
+                                    ++m_uClickedCount;   // ½«µ¥»÷¹ıµÄÊıÄ¿¼Ó1.
                                 }
                             }
                         }
                     }
                 } // xPos For end here.
 
-                if (PlayerWin())                          // æ£€æµ‹ç©å®¶æ˜¯å¦èµ¢å¾—æ¸¸æˆ.
+                if (PlayerWin())                          // ¼ì²âÍæ¼ÒÊÇ·ñÓ®µÃÓÎÏ·.
                 {
                     return ;
                 }
@@ -946,7 +946,7 @@ void CSweepMineDlg::OnLButtonUp(UINT nFlags, CPoint point)
     if (!m_bPlayerFailed)
     {
         //
-        // æ›´æ”¹æŒ‰é’®å°å¤´åƒçš„æ˜¾ç¤º.
+        // ¸ü¸Ä°´Å¥Ğ¡Í·ÏñµÄÏÔÊ¾.
         //
         m_NewGameBtn.LoadBitmaps(IDB_READY);
         m_NewGameBtn.Invalidate();
@@ -958,11 +958,11 @@ void CSweepMineDlg::OnLButtonUp(UINT nFlags, CPoint point)
             return ;
 
         //
-        // å¦‚æœæ­¤åœ°æ˜¯åœ°é›·ä¸”æœªæ ‡è®°å¤±è´¥,åˆ™æ˜¾ç¤ºæ‰€æœ‰åœ°é›·,ç»“æŸæ¸¸æˆ.
+        // Èç¹û´ËµØÊÇµØÀ×ÇÒÎ´±ê¼ÇÊ§°Ü,ÔòÏÔÊ¾ËùÓĞµØÀ×,½áÊøÓÎÏ·.
         //
         if (m_ppCells[i][j].m_iStatus == ISMine && !m_ppCells[i][j].m_bChecked)
         {
-            // ä¸ºæŒ‰é’®åŠ è½½ç©å®¶å¤±è´¥å›¾ç‰‡.
+            // Îª°´Å¥¼ÓÔØÍæ¼ÒÊ§°ÜÍ¼Æ¬.
             m_NewGameBtn.LoadBitmaps(IDB_FAILED);
             m_NewGameBtn.Invalidate();
 
@@ -975,21 +975,21 @@ void CSweepMineDlg::OnLButtonUp(UINT nFlags, CPoint point)
                     );
             }
 
-            m_bPlayerFailed = TRUE;                // æ ‡è®°ä¸ºç©å®¶å¤±è´¥.
+            m_bPlayerFailed = TRUE;                // ±ê¼ÇÎªÍæ¼ÒÊ§°Ü.
             m_FailedPoint.x = i;
             m_FailedPoint.y = j;
 
-            KillTimer(Game_Timer);                 // å…³é—­è®¡æ—¶å™¨.
+            KillTimer(Game_Timer);                 // ¹Ø±Õ¼ÆÊ±Æ÷.
             DrawScance();
 
-            // å°†æš‚åœèœå•æ ‡è®°ä¸ºä¸å¯ç”¨.
+            // ½«ÔİÍ£²Ëµ¥±ê¼ÇÎª²»¿ÉÓÃ.
             GetMenu()->GetSubMenu(0)->EnableMenuItem(ID_PAUSE_GAME, TRUE);
 
             return ;
         }
 
         //
-        // è‹¥æ­¤ä½ç½®è¿˜æœªè¢«å•å‡»ä¸”æ­¤ä½ç½®æ²¡æœ‰è¢«æ ‡è®°,åˆ™æ›´æ–°ä¹‹.
+        // Èô´ËÎ»ÖÃ»¹Î´±»µ¥»÷ÇÒ´ËÎ»ÖÃÃ»ÓĞ±»±ê¼Ç,Ôò¸üĞÂÖ®.
         //
         if (!m_ppCells[i][j].m_bClicked && !m_ppCells[i][j].m_bChecked)
         {
@@ -1002,19 +1002,19 @@ void CSweepMineDlg::OnLButtonUp(UINT nFlags, CPoint point)
                     );
             }
 
-            // æ ‡è®°ä¸ºå·²å•å‡».
+            // ±ê¼ÇÎªÒÑµ¥»÷.
             m_ppCells[i][j].m_bClicked = TRUE;
             ++m_uClickedCount;
 
             if (PlayerWin())
             {
-                // æ£€æµ‹ç©å®¶æ˜¯å¦èµ¢å¾—æ¸¸æˆ.
+                // ¼ì²âÍæ¼ÒÊÇ·ñÓ®µÃÓÎÏ·.
                 return ;
             }
 
             if (m_ppCells[i][j].m_iStatus == No_Mine)
             {
-                // å°†å‘¨å›´çš„ç©ºç™½æ ¼æ‰©å±•å¼€æ¥.
+                // ½«ÖÜÎ§µÄ¿Õ°×¸ñÀ©Õ¹¿ªÀ´.
                 ExtendBlank(i, j);
             }
 
@@ -1030,18 +1030,18 @@ void CSweepMineDlg::OnLButtonUp(UINT nFlags, CPoint point)
 void CSweepMineDlg::ExtendBlank(const int& uxPos, const int& uyPos)
 {
     //
-    // å†å°†å‘¨å›´çš„ä¸€å°ç‰‡ä¸æ˜¯é›·çš„åŒºåŸŸæ ‡è®°å‡ºæ¥.
+    // ÔÙ½«ÖÜÎ§µÄÒ»Ğ¡Æ¬²»ÊÇÀ×µÄÇøÓò±ê¼Ç³öÀ´.
     //
     for (int i = uxPos - 1; i < uxPos + 2; ++i)
     {
         if (i >= 0 && i < m_uWideCellCount)
         {
-            // ç¡®ä¿æ¨ªå‘ä¸èƒ½å‡ºç•Œ.
+            // È·±£ºáÏò²»ÄÜ³ö½ç.
             for (int j = uyPos - 1; j < uyPos + 2; ++j)
             {
                 if (j >= 0 && j< m_uHeighCellCount)
                 {
-                    // ç¡®ä¿çºµå‘ä¸èƒ½å‡ºç•Œ.
+                    // È·±£×İÏò²»ÄÜ³ö½ç.
                     if (m_ppCells[i][j].m_iStatus != ISMine
                         && !m_ppCells[i][j].m_bClicked && !m_ppCells[i][j].m_bChecked)
                     {
@@ -1063,7 +1063,7 @@ void CSweepMineDlg::ExtendBlank(const int& uxPos, const int& uyPos)
 
     if (PlayerWin())
     {
-        // æ£€æµ‹ç©å®¶æ˜¯å¦èµ¢å¾—æ¸¸æˆ.
+        // ¼ì²âÍæ¼ÒÊÇ·ñÓ®µÃÓÎÏ·.
         return ;
     }
 }
@@ -1072,7 +1072,7 @@ void CSweepMineDlg::ExtendBlank(const int& uxPos, const int& uyPos)
 BOOL CSweepMineDlg::PlayerWin()
 {
     //
-    // æ£€æŸ¥ç©å®¶æ˜¯å¦èµ¢å¾—æ¸¸æˆ.
+    // ¼ì²éÍæ¼ÒÊÇ·ñÓ®µÃÓÎÏ·.
     //
     if (m_uWideCellCount * m_uHeighCellCount - m_uClickedCount == m_uMineCount)
     {
@@ -1085,17 +1085,17 @@ BOOL CSweepMineDlg::PlayerWin()
                 );
         }
 
-        KillTimer(Game_Timer);               // å…³é—­è®¡æ—¶å™¨.
-        m_uCheckedCount = m_uMineCount;      // å°†æ ‡è®°æ•°è®¾ä¸ºé›·çš„æ•°ç›®.
-        m_bPlayerFailed = TRUE;              // è™½ç„¶è¿™æ ·,ä½†ç©å®¶å®é™…ä¸Šèµ¢äº†.
+        KillTimer(Game_Timer);               // ¹Ø±Õ¼ÆÊ±Æ÷.
+        m_uCheckedCount = m_uMineCount;      // ½«±ê¼ÇÊıÉèÎªÀ×µÄÊıÄ¿.
+        m_bPlayerFailed = TRUE;              // ËäÈ»ÕâÑù,µ«Íæ¼ÒÊµ¼ÊÉÏÓ®ÁË.
 
         DrawScance();
         m_NewGameBtn.LoadBitmaps(IDB_READY, IDB_WILL_RESULT);
 
-        // å°†æš‚åœèœå•æ ‡è®°ä¸ºä¸å¯ç”¨.
+        // ½«ÔİÍ£²Ëµ¥±ê¼ÇÎª²»¿ÉÓÃ.
         GetMenu()->GetSubMenu(0)->EnableMenuItem(ID_PAUSE_GAME, TRUE);
 
-        // å°†è‹±é›„ä¿¡æ¯å†™å…¥æ³¨å†Œè¡¨.
+        // ½«Ó¢ĞÛĞÅÏ¢Ğ´Èë×¢²á±í.
         HeroRegiste();
         return TRUE;
     }
@@ -1109,7 +1109,7 @@ void CSweepMineDlg::HeroRegiste()
     HKEY hRegKey = NULL;
     CString szKeyInfo = _T("Software\\SweepMine1.0");
 
-    // åˆ›å»ºè½¯ä»¶ä¿¡æ¯ä¸­çš„ "SweepMine1.0" é”®.è‹¥è¯¥é”®å·²ç»å­˜åœ¨,åˆ™æ‰“å¼€ä¹‹.
+    // ´´½¨Èí¼şĞÅÏ¢ÖĞµÄ "SweepMine1.0" ¼ü.Èô¸Ã¼üÒÑ¾­´æÔÚ,Ôò´ò¿ªÖ®.
     if (m_uPlayerLevel == 1)
     {
         szKeyInfo += _T("\\Primary");
@@ -1124,17 +1124,17 @@ void CSweepMineDlg::HeroRegiste()
     }
     else
     {
-        // è™½ç„¶è¿™æ ·,ä½†ç©å®¶å®é™…ä¸Šèµ¢äº†.
+        // ËäÈ»ÕâÑù,µ«Íæ¼ÒÊµ¼ÊÉÏÓ®ÁË.
         m_bPlayerFailed = TRUE;
-        MessageBox(_T("çœŸæ£’!ä½ èµ¢äº†!!!"), _T("ä½ èµ¢äº†"), MB_OK | MB_ICONINFORMATION);
+        MessageBox(_T("Õæ°ô!ÄãÓ®ÁË!!!"), _T("ÄãÓ®ÁË"), MB_OK | MB_ICONINFORMATION);
         return ;
     }
 
     RegCreateKey(HKEY_LOCAL_MACHINE, szKeyInfo, &hRegKey);
     CString szTime = CHeroPageDialog::GetRegisterValue(hRegKey, Used_Times);
 
-    DWORD dwBestUsedTime =  wcstoul(szTime, '\0', 10);     // æœ€å¥½çš„æ¸¸æˆè®°å½•.
-    if (szTime == "" || m_dwUsedTime < dwBestUsedTime)     // ç©å®¶æ‰“ç ´äº†è®°å½•.
+    DWORD dwBestUsedTime =  wcstoul(szTime, '\0', 10);     // ×îºÃµÄÓÎÏ·¼ÇÂ¼.
+    if (szTime == "" || m_dwUsedTime < dwBestUsedTime)     // Íæ¼Ò´òÆÆÁË¼ÇÂ¼.
     {
         CWinedPlayer PlayerWinDialog;
         if (IDOK == PlayerWinDialog.DoModal())
@@ -1142,11 +1142,11 @@ void CSweepMineDlg::HeroRegiste()
             HKEY hHeroNameKey      = NULL;
             HKEY hHeroUsedTimesKey = NULL;
 
-            // æ‰“å¼€å§“åå’Œç”¨æ—¶æ³¨å†Œè¡¨.
+            // ´ò¿ªĞÕÃûºÍÓÃÊ±×¢²á±í.
             RegCreateKey(HKEY_LOCAL_MACHINE, szKeyInfo + _T("\\Name"), &hHeroNameKey);
             RegCreateKey(HKEY_LOCAL_MACHINE, szKeyInfo + _T("\\UsedTimes"), &hHeroUsedTimesKey);
 
-            // å°†å§“åå†™å…¥æ³¨å†Œè¡¨.
+            // ½«ĞÕÃûĞ´Èë×¢²á±í.
             RegSetValue(
                 hHeroNameKey,
                 NULL,
@@ -1155,7 +1155,7 @@ void CSweepMineDlg::HeroRegiste()
                 PlayerWinDialog.GetPlayerName().GetLength()
                 );
 
-            // å°†ç”¨æ—¶å†™å…¥æ³¨å†Œè¡¨.
+            // ½«ÓÃÊ±Ğ´Èë×¢²á±í.
             szTime.Format(_T("%d"), m_dwUsedTime);
             RegSetValue(
                 hHeroUsedTimesKey,
@@ -1165,29 +1165,29 @@ void CSweepMineDlg::HeroRegiste()
                 szTime.GetLength()
                 );
 
-            // å…³é—­å§“åå’Œç”¨æ—¶æ³¨å†Œè¡¨.
+            // ¹Ø±ÕĞÕÃûºÍÓÃÊ±×¢²á±í.
             RegCloseKey(hHeroNameKey);
             RegCloseKey(hHeroUsedTimesKey);
         }
     }
     else if (m_dwUsedTime == dwBestUsedTime)
     {
-        // ç©å®¶å¹³äº†æœ€ä½³è®°å½•.
+        // Íæ¼ÒÆ½ÁË×î¼Ñ¼ÇÂ¼.
         MessageBox(
-            _T("å¥½æ ·çš„,ä½ å·²ç»å¹³äº†æœ€ä½³è®°å½•!ç»§ç»­åŠªåŠ›!!"),
+            _T("ºÃÑùµÄ,ÄãÒÑ¾­Æ½ÁË×î¼Ñ¼ÇÂ¼!¼ÌĞøÅ¬Á¦!!"),
             _T("Good Job!"),
             MB_OK | MB_ICONINFORMATION
             );
     }
     else
     {
-        // ç©å®¶æ²¡æœ‰æ‰“ç ´è®°å½•,åˆ™æ˜¾ç¤ºæç¤ºä¿¡æ¯.
+        // Íæ¼ÒÃ»ÓĞ´òÆÆ¼ÇÂ¼,ÔòÏÔÊ¾ÌáÊ¾ĞÅÏ¢.
         CString Str;
         Str.Format(
-            _T("ç»§ç»­åŠªåŠ›,ä½ è¿˜æœ‰ %d ç§’å°±æ‰“ç ´äº†è®°å½•!"),
+            _T("¼ÌĞøÅ¬Á¦,Äã»¹ÓĞ %d Ãë¾Í´òÆÆÁË¼ÇÂ¼!"),
             m_dwUsedTime - dwBestUsedTime
             );
-        MessageBox(Str, _T("ä½ èµ¢äº†!"), MB_OK | MB_ICONINFORMATION);
+        MessageBox(Str, _T("ÄãÓ®ÁË!"), MB_OK | MB_ICONINFORMATION);
     }
 
     if (hRegKey)
@@ -1198,7 +1198,7 @@ void CSweepMineDlg::HeroRegiste()
 
 
 //
-// ä¸ºæ¯ä¸€ä½ç½®è®¡ç®—åœ°é›·åˆ†å¸ƒä¸ªæ•°.
+// ÎªÃ¿Ò»Î»ÖÃ¼ÆËãµØÀ×·Ö²¼¸öÊı.
 //
 void CSweepMineDlg::ComputeCellSpread()
 {
@@ -1208,7 +1208,7 @@ void CSweepMineDlg::ComputeCellSpread()
         {
             if (m_ppCells[i][j].m_iStatus == ISMine)
             {
-                // å¦‚æœæœ¬ä½ç½®æ˜¯åœ°é›·,åˆ™ä¸ºå®ƒå‘¨å›´çš„æ ¼å­è®¡ç®—åœ°é›·åˆ†å¸ƒ.
+                // Èç¹û±¾Î»ÖÃÊÇµØÀ×,ÔòÎªËüÖÜÎ§µÄ¸ñ×Ó¼ÆËãµØÀ×·Ö²¼.
                 for (int m = i - 1; m < i + 2; ++m)
                 {
                     if (m >= 0 && m < m_uWideCellCount)
@@ -1219,15 +1219,15 @@ void CSweepMineDlg::ComputeCellSpread()
                             {
                                 if (m_ppCells[m][n].m_iStatus != ISMine)
                                 {
-                                    // å¦‚æœå››å‘¨ä¸æ˜¯åœ°é›·,åˆ™å°†ä¹‹åœ°é›·æ•°åŠ 1.
+                                    // Èç¹ûËÄÖÜ²»ÊÇµØÀ×,Ôò½«Ö®µØÀ×Êı¼Ó1.
                                     ++m_ppCells[m][n].m_iStatus;
                                 }
                             }
                         }
                     }
-                } // å‘¨å›´åˆ†å¸ƒæƒ…å†µç»“æŸ.
+                } // ÖÜÎ§·Ö²¼Çé¿ö½áÊø.
             }
-        } // æ‰€æœ‰åœ°é›·åˆ†æå®Œæˆ.
+        } // ËùÓĞµØÀ×·ÖÎöÍê³É.
     } //For End Here.
 }
 
@@ -1236,11 +1236,11 @@ void CSweepMineDlg::OnTimer(UINT_PTR nIDEvent)
 {
     switch (nIDEvent)
     {
-    case Game_Timer:            // æ¸¸æˆè®¡æ—¶å™¨.æ¯1sè®°ä¸€æ¬¡.
+    case Game_Timer:            // ÓÎÏ·¼ÆÊ±Æ÷.Ã¿1s¼ÇÒ»´Î.
         if (!m_bGamePaused)
         {
-            ++m_dwUsedTime;     // å¦‚æœæ¸¸æˆå¹¶æœªæš‚åœ,åˆ™å°†æ¸¸æˆè®¡æ—¶åŠ 1.
-            DrawTimer();        // æ›´æ–°è®¡æ—¶å™¨.
+            ++m_dwUsedTime;     // Èç¹ûÓÎÏ·²¢Î´ÔİÍ£,Ôò½«ÓÎÏ·¼ÆÊ±¼Ó1.
+            DrawTimer();        // ¸üĞÂ¼ÆÊ±Æ÷.
         }
 
         break;
@@ -1256,17 +1256,17 @@ void CSweepMineDlg::OnTimer(UINT_PTR nIDEvent)
 void CSweepMineDlg::DrawTimer()
 {
     //
-    // ç»˜åˆ¶è®¡æ—¶å™¨éƒ¨åˆ†. è®¡æ—¶å™¨æ ¼å¼: åˆ†:ç§’,å…¶ä¸­"åˆ†"å ä¸¤ä½,"ç§’"å ä¸¤ä½.
+    // »æÖÆ¼ÆÊ±Æ÷²¿·Ö. ¼ÆÊ±Æ÷¸ñÊ½: ·Ö:Ãë,ÆäÖĞ"·Ö"Õ¼Á½Î»,"Ãë"Õ¼Á½Î».
     //
     UINT uTimeFormat[4];
-    uTimeFormat[0] = m_dwUsedTime / 600;      // è·å–åˆ†é’Ÿæ•°.
+    uTimeFormat[0] = m_dwUsedTime / 600;      // »ñÈ¡·ÖÖÓÊı.
     uTimeFormat[1] = m_dwUsedTime / 60 - 10 * uTimeFormat[0];
 
-    uTimeFormat[2] = (m_dwUsedTime - uTimeFormat[0] * 600 - uTimeFormat[1] * 60) / 10;     // è·å–ç§’æ•°.
+    uTimeFormat[2] = (m_dwUsedTime - uTimeFormat[0] * 600 - uTimeFormat[1] * 60) / 10;     // »ñÈ¡ÃëÊı.
     uTimeFormat[3] = (m_dwUsedTime - uTimeFormat[0] * 600 - uTimeFormat[1] * 60) - uTimeFormat[2] * 10;
 
     //
-    // æ‰§è¡Œè®¡æ—¶å™¨ç»˜åˆ¶.
+    // Ö´ĞĞ¼ÆÊ±Æ÷»æÖÆ.
     //
     CBitmap   Bitmap;
     BITMAP    BitmapInfo;
@@ -1299,7 +1299,7 @@ void CSweepMineDlg::DrawTimer()
 
         if (i == 1)
         {
-            // è´´å‡ºæ—¶é’Ÿåˆ†éš”ç¬¦.
+            // Ìù³öÊ±ÖÓ·Ö¸ô·û.
             uBltxPos += BitmapInfo.bmWidth;
             dc.StretchBlt(
                 uBltxPos,
@@ -1321,7 +1321,7 @@ void CSweepMineDlg::DrawTimer()
 void CSweepMineDlg::DrawCkeckedCount()
 {
     //
-    // æ›´æ–°æ ‡è®°æ•°ç›®çš„ç»˜åˆ¶.
+    // ¸üĞÂ±ê¼ÇÊıÄ¿µÄ»æÖÆ.
     //
     UINT uTextxPos = m_cuxOffset + (m_uCellWidth * m_uWideCellCount) / 2 - 140;
     UINT uTextyPos = 20;
@@ -1346,11 +1346,11 @@ void CSweepMineDlg::OnActivate(UINT nState, CWnd* pWndOther, BOOL bMinimized)
 
     if (nState == WA_INACTIVE)
     {
-        m_bGamePaused = TRUE;          // å¤±å»ç„¦ç‚¹,æš‚åœæ¸¸æˆ.
+        m_bGamePaused = TRUE;          // Ê§È¥½¹µã,ÔİÍ£ÓÎÏ·.
     }
     else if (nState == WA_CLICKACTIVE || nState == WA_ACTIVE)
     {
-        m_bGamePaused = FALSE;         // è·å¾—ç„¦ç‚¹,ç»§ç»­æ¸¸æˆ.
+        m_bGamePaused = FALSE;         // »ñµÃ½¹µã,¼ÌĞøÓÎÏ·.
     }
 }
 
@@ -1362,8 +1362,8 @@ BOOL CSweepMineDlg::PreTranslateMessage(MSG* pMsg)
         if (pMsg->wParam == VK_ESCAPE)
         {
             if (IDYES == MessageBox(
-                    _T("ä½ çœŸçš„è¦é€€å‡ºå—?"),
-                    _T("é€€å‡º"),
+                    _T("ÄãÕæµÄÒªÍË³öÂğ?"),
+                    _T("ÍË³ö"),
                     MB_YESNO | MB_ICONWARNING
                     )
                 )
