@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="include">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AuthorDialog.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="HeroPageDialog.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="HowPlayGameDialog.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingDialog.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="SweepMine.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="SweepMineDlg.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="WinedPlayer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AuthorDialog.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="HeroPageDialog.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="HowPlayGameDialog.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingDialog.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="SweepMine.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="SweepMineDlg.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="WinedPlayer.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\1.bmp">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="res\2.bmp">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="res\3.bmp">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="res\4.bmp">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="res\5.bmp">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="res\6.bmp">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="res\7.bmp">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="res\8.bmp">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="res\AuthorInfo.bmp">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="res\Bitmap.bmp">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="res\Blank.bmp">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="res\Click Flag.bmp">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="res\Click.bmp">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="res\Explosion.bmp">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="res\Failed.bmp">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="res\FailedFlag.bmp">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="res\Flag.bmp">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="res\Head.bmp">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="res\HowToPlay.bmp">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="res\kong.bmp">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="res\Lei.bmp">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="res\Ok.bmp">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="res\Seperator.bmp">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="res\SweepMine.ico">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="res\Timer.bmp">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="res\TransClick.bmp">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="res\bitmap2.bmp">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="res\author.bmp">
+      <Filter>resource</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="res\Explosion.wav">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="res\FlagSound.wav">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="res\PlayerStep.WAV">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="res\PlayerWin.wav">
+      <Filter>resource</Filter>
+    </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\heropage.bin">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="res\SweepMine.rc2">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="res\wave1.bin">
+      <Filter>resource</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SweepMine.rc">
+      <Filter>resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

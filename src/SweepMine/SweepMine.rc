@@ -1,0 +1,433 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef APSTUDIO_INVOKED
+#include "targetver.h"
+#endif
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (Simplified, PRC) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""targetver.h""\r\n"
+    "#endif\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#include ""res\\SweepMine.rc2""  // 非 Microsoft Visual C++ 编辑的资源\r\n"
+    "#include ""l.CHS\\afxres.rc""      // 标准组件\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\SweepMine.ico"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 167, 85
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于趣味扫雷"
+FONT 9, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,71,16,18,18
+    LTEXT           "趣味扫雷 1.0",IDC_STATIC,60,44,49,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2010. All Rights Reserved.",IDC_STATIC,20,60,136,8
+END
+
+IDD_SWEEPMINE_DIALOG DIALOGEX 0, 0, 222, 206
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_OVERLAPPEDWINDOW | WS_EX_APPWINDOW
+CAPTION "趣味扫雷 1.0"
+MENU IDR_GAME_MENU
+FONT 9, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_NEW_GAME_BTN,"Button",BS_OWNERDRAW | BS_VCENTER | NOT WS_VISIBLE | WS_TABSTOP,86,14,30,28
+END
+
+IDD_AUTHOR_DIALOG DIALOGEX 0, 0, 202, 76
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "作者信息"
+FONT 11, "宋体", 400, 0, 0x0
+BEGIN
+    CONTROL         IDB_AUTHOR,IDC_STATIC,"Static",SS_BITMAP,15,13,46,49
+    LTEXT           "Arno Zhang",IDC_STATIC,73,15,41,14,WS_TABSTOP
+    LTEXT           "zyfgood12@163.com",IDC_STATIC,73,30,69,14
+    CONTROL         "<a href=""https://github.com/arnozhang"">https://github.com/arnozhang</a>",IDC_SYSLINK,
+                    "SysLink",WS_TABSTOP,73,46,119,14
+END
+
+IDD_HOW_PLAY_GAME DIALOGEX 0, 0, 300, 141
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_BORDER | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         IDB_HOW_TO_PLAY,IDC_STATIC,"Static",SS_BITMAP,0,0,300,140
+    PUSHBUTTON      "我知道了",IDC_I_KNOW,210,112,51,17
+END
+
+IDD_HERO_PAGE DIALOGEX 0, 0, 169, 89
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "--扫雷英雄榜--"
+FONT 10, "Microsoft Sans Serif", 400, 0, 0x0
+BEGIN
+    LTEXT           "静态",IDC_PRIMARY_NAME,52,31,49,8
+    LTEXT           "静态",IDC_PRIMARY_TIME,125,31,32,8
+    LTEXT           "初级：",IDC_STATIC,15,31,24,8
+    LTEXT           "高级：",IDC_STATIC,15,69,25,8
+    LTEXT           "中级：",IDC_STATIC,15,50,27,8
+    LTEXT           "姓名",IDC_STATIC,63,13,24,8
+    LTEXT           "用时(秒)",IDC_STATIC,123,13,31,8
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,6,25,157,1
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,6,43,157,1
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,6,62,157,1
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,6,81,157,1
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,6,8,157,1
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,39,9,1,72
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,103,9,1,72
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,162,9,1,72
+    LTEXT           "静态",IDC_MIDDLE_NAME,52,50,49,8
+    LTEXT           "静态",IDC_MIDDLE_TIME,125,49,34,8
+    LTEXT           "静态",IDC_HEIGH_NAME,52,69,49,8
+    LTEXT           "静态",IDC_HEIGH_TIME,125,69,32,8
+    LTEXT           "英雄榜",IDC_STATIC,12,13,24,8
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,6,9,1,72
+END
+
+IDD_PLAYER_DEFINE DIALOGEX 0, 0, 149, 110
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "自定义游戏"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_WIDE_COUNT,58,14,64,16,ES_AUTOHSCROLL
+    EDITTEXT        IDC_HEIGH_COUNT,58,34,64,16,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MINE_COUNT,58,54,64,16,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "确定",IDOK,12,84,50,14
+    PUSHBUTTON      "取消",IDCANCEL,80,84,50,14
+    LTEXT           "宽度:",IDC_STATIC,27,17,29,11
+    LTEXT           "高度:",IDC_STATIC,27,37,29,11
+    LTEXT           "雷数:",IDC_STATIC,27,57,29,11
+END
+
+IDD_WINED_PLAYER_INFO DIALOGEX 0, 0, 191, 91
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "英雄大名"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_WINED_PLAYER_NAME,28,35,138,15,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "确定",IDOK,18,62,50,14
+    PUSHBUTTON      "取消",IDCANCEL,125,62,50,14
+    LTEXT           "英雄，你已经破了记录！请留下尊姓大名：",IDC_STATIC,18,15,158,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080403a8"
+        BEGIN
+            VALUE "Comments", "Copyright (C) 2010. All Rights Reserved."
+            VALUE "CompanyName", "张亚峰作品"
+            VALUE "FileDescription", "趣味扫雷"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "SweepMine.exe"
+            VALUE "LegalCopyright", "张亚峰作品"
+            VALUE "OriginalFilename", "SweepMine.exe"
+            VALUE "ProductName", "趣味扫雷 1.0"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 936
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 160
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 78
+    END
+
+    IDD_SWEEPMINE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 215
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 199
+    END
+
+    IDD_AUTHOR_DIALOG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 201
+        BOTTOMMARGIN, 75
+    END
+
+    IDD_HOW_PLAY_GAME, DIALOG
+    BEGIN
+    END
+
+    IDD_HERO_PAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 166
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 86
+    END
+
+    IDD_PLAYER_DEFINE, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        RIGHTMARGIN, 140
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+
+    IDD_WINED_PLAYER_INFO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 184
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 84
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_GAME_MENU MENU
+BEGIN
+    POPUP "游戏(&G)"
+    BEGIN
+        MENUITEM "新游戏(&N)",                     ID_NEW_GAME
+        MENUITEM "暂停(&P)",                      ID_PAUSE_GAME
+        MENUITEM SEPARATOR
+        MENUITEM "初级(&P)",                      ID_PRIMARY, CHECKED
+        MENUITEM "中级(&M)",                      ID_MIDDLE
+        MENUITEM "高级(&H)",                      ID_HEIGH
+        MENUITEM SEPARATOR
+        MENUITEM "退出(&Q)",                      ID_QUIT_GAME
+    END
+    POPUP "设置(&S)"
+    BEGIN
+        MENUITEM "音效(&S)",                      ID_SOUND, CHECKED
+        MENUITEM SEPARATOR
+        MENUITEM "英雄榜...(&H)",                  ID_VIEW_HERO
+        MENUITEM SEPARATOR
+        MENUITEM "自定义...(&U)",                  ID_USER_DEFINE
+    END
+    POPUP "帮助(&H)"
+    BEGIN
+        MENUITEM "如何扫雷...(&H)",                 ID_HOW_SWEEP_MINE
+        MENUITEM SEPARATOR
+        MENUITEM "作者信息...(&A)",                 ID_AUTHOR_INFO
+        MENUITEM SEPARATOR
+        MENUITEM "关于软件...(&S)",                 ID_ABOUT_SOFT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_ONE_CELL            BITMAP                  "res\\1.bmp"
+
+IDB_TWO_CELL            BITMAP                  "res\\2.bmp"
+
+IDB_THREE_CELL          BITMAP                  "res\\3.bmp"
+
+IDB_FOUR_CELL           BITMAP                  "res\\4.bmp"
+
+IDB_FIVE_CELL           BITMAP                  "res\\5.bmp"
+
+IDB_SIX_CELL            BITMAP                  "res\\6.bmp"
+
+IDB_SEVEN_CELL          BITMAP                  "res\\7.bmp"
+
+IDB_EIGHT_CELL          BITMAP                  "res\\8.bmp"
+
+IDB_BLANK               BITMAP                  "res\\Blank.bmp"
+
+IDB_CLICK_CHECKED_FLAG  BITMAP                  "res\\Click Flag.bmp"
+
+IDB_CLICK_BLANK         BITMAP                  "res\\Click.bmp"
+
+IDB_EXPLOSION           BITMAP                  "res\\Explosion.bmp"
+
+IDB_FAILED              BITMAP                  "res\\Failed.bmp"
+
+IDB_CHECKED_FLAG        BITMAP                  "res\\Flag.bmp"
+
+IDB_READY               BITMAP                  "res\\Head.bmp"
+
+IDB_NO_CLICKED          BITMAP                  "res\\kong.bmp"
+
+IDB_CELL                BITMAP                  "res\\Lei.bmp"
+
+IDB_WILL_RESULT         BITMAP                  "res\\Ok.bmp"
+
+IDB_FAILED_FLAG         BITMAP                  "res\\FailedFlag.bmp"
+
+IDB_HOW_TO_PLAY         BITMAP                  "res\\HowToPlay.bmp"
+
+IDB_TIME                BITMAP                  "res\\Timer.bmp"
+
+IDB_TRANS               BITMAP                  "res\\TransClick.bmp"
+
+IDB_AUTHOR              BITMAP                  "res\\author.bmp"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// WAVE
+//
+
+IDR_EXPLOSION           WAVE                    "res\\Explosion.wav"
+
+IDR_PLAYER_STEP         WAVE                    "res\\PlayerStep.WAV"
+
+IDR_PLAYER_WIN          WAVE                    "res\\PlayerWin.wav"
+
+IDR_CHECK_FLAG          WAVE                    "res\\FlagSound.wav"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_ABOUTBOX AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_AUTHOR_DIALOG AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_SWEEPMINE_DIALOG AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "关于 SweepMine(&A)..."
+END
+
+#endif    // Chinese (Simplified, PRC) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE 4, 2
+#pragma code_page(936)
+#include "res\SweepMine.rc2"  // 非 Microsoft Visual C++ 编辑的资源
+#include "l.CHS\afxres.rc"      // 标准组件
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
