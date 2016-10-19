@@ -4,6 +4,8 @@
 
 所以把代码和可运行程序传上来做个纪念意义吧。
 
+[点此下载程序：https://raw.githubusercontent.com/arnozhang/MFC-SweepMine/master/release/SweepMine.exe](https://raw.githubusercontent.com/arnozhang/MFC-SweepMine/master/release/SweepMine.exe)
+
 ![主界面](https://github.com/arnozhang/MFC-SweepMine/raw/master/docs/main.png)
 
 ![失败了](https://github.com/arnozhang/MFC-SweepMine/raw/master/docs/failed.png)
