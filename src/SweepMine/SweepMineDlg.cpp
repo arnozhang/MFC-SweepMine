@@ -800,7 +800,7 @@ void CSweepMineDlg::OnLButtonDown(UINT nFlags, CPoint point)
             // 在除了本位置之外的地方随机放置地雷.
             //
             srand((unsigned int)time(NULL));  // 初始化随机数生成器.
-            for (int MineIndex=0; MineIndex != m_uMineCount; ++MineIndex)
+            for (int MineIndex = 0; MineIndex != m_uMineCount; ++MineIndex)
             {
                 while(TRUE)
                 {
@@ -871,13 +871,13 @@ void CSweepMineDlg::OnLButtonDown(UINT nFlags, CPoint point)
         {
             int iCheckedRightCount(0);                   // 周围标记对的计数器.
 
-            for (int xPos=i-1; xPos<i+2; ++xPos)
+            for (int xPos = i - 1; xPos < i + 2; ++xPos)
             {
                 if (xPos >= 0 && xPos < m_uWideCellCount)
                 {
-                    for (int yPos=j-1; yPos<j+2; ++yPos)
+                    for (int yPos = j - 1; yPos < j + 2; ++yPos)
                     {
-                        if (yPos >=0 && yPos < m_uHeighCellCount)
+                        if (yPos >= 0 && yPos < m_uHeighCellCount)
                         {
                             CBitmap TipBitmap;
                             TipBitmap.LoadBitmap(IDB_TRANS);
@@ -910,11 +910,11 @@ void CSweepMineDlg::OnLButtonDown(UINT nFlags, CPoint point)
             //
             if (m_ppCells[i][j].m_iStatus == iCheckedRightCount)
             {
-                for (int xPos=i-1; xPos<i+2; ++xPos)
+                for (int xPos = i - 1; xPos < i + 2; ++xPos)
                 {
                     if (xPos >= 0 && xPos < m_uWideCellCount)
                     {
-                        for (int yPos=j-1; yPos<j+2; ++yPos)
+                        for (int yPos = j - 1; yPos < j + 2; ++yPos)
                         {
                             if (yPos >=0 && yPos < m_uHeighCellCount)
                             {
@@ -1032,12 +1032,12 @@ void CSweepMineDlg::ExtendBlank(const int& uxPos, const int& uyPos)
     //
     // 再将周围的一小片不是雷的区域标记出来.
     //
-    for (int i=uxPos-1; i<uxPos+2; ++i)
+    for (int i = uxPos - 1; i < uxPos + 2; ++i)
     {
         if (i >= 0 && i < m_uWideCellCount)
         {
             // 确保横向不能出界.
-            for (int j=uyPos-1; j<uyPos+2; ++j)
+            for (int j = uyPos - 1; j < uyPos + 2; ++j)
             {
                 if (j >=0 && j< m_uHeighCellCount)
                 {
@@ -1209,11 +1209,11 @@ void CSweepMineDlg::ComputeCellSpread()
             if (m_ppCells[i][j].m_iStatus == ISMine)
             {
                 // 如果本位置是地雷,则为它周围的格子计算地雷分布.
-                for (int m=i-1; m<i+2; ++m)
+                for (int m = i - 1; m < i + 2; ++m)
                 {
-                    if (m>=0 && m<m_uWideCellCount)
+                    if (m >= 0 && m < m_uWideCellCount)
                     {
-                        for (int n=j-1; n<j+2; ++n)
+                        for (int n = j - 1; n < j + 2; ++n)
                         {
                             if (n>=0 && n<m_uHeighCellCount)
                             {
