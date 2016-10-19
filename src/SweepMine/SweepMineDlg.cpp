@@ -58,7 +58,7 @@ CSweepMineDlg::CSweepMineDlg(CWnd* pParent /*=NULL*/)
     m_uWideCellCount  = 10;        // 横向的格子数.
     m_uHeighCellCount = 10;        // 纵向的格子数.
     m_uMineCount      = 10;        // 雷的数目.
-    m_uPlayerLevel     = 1;        // 玩家在第一关.
+    m_uPlayerLevel    = 1;         // 玩家在第一关.
 
     //
     // 游戏状态参数.
@@ -497,7 +497,7 @@ void CSweepMineDlg::NewGame(BOOL bCenterWnd /*= FALSE*/)
     {
         m_ppCells = new SCell*[m_uWideCellCount];
 
-        for (int i=0; i != m_uWideCellCount; ++i)
+        for (int i = 0; i != m_uWideCellCount; ++i)
         {
             m_ppCells[i] = new SCell[m_uHeighCellCount];
         }
@@ -534,7 +534,7 @@ void CSweepMineDlg::EndGame()
 {
     if (m_ppCells)
     {
-        for (int i=0; i != m_uWideCellCount; ++i)
+        for (int i = 0; i != m_uWideCellCount; ++i)
         {
             delete [] m_ppCells[i];
         }
@@ -561,11 +561,11 @@ void CSweepMineDlg::DrawScance()
 
     CompatiDC.CreateCompatibleDC(&dc);
 
-    for (int i=0; i != m_uWideCellCount; ++i)
+    for (int i = 0; i != m_uWideCellCount; ++i)
     {
-        for (int j=0; j != m_uHeighCellCount; ++j)
+        for (int j = 0; j != m_uHeighCellCount; ++j)
         {
-            CBitmap   Bitmap;         // 位图对象.
+            CBitmap Bitmap;           // 位图对象.
 
             if (!m_bPlayerFailed)
             {
@@ -637,7 +637,7 @@ void CSweepMineDlg::DrawScance()
                 }
             }
 
-            switch(m_ppCells[i][j].m_iStatus)
+            switch (m_ppCells[i][j].m_iStatus)
             {
             case ISMine:             // 本位置是雷.
                 if (m_bPlayerFailed)
@@ -1202,9 +1202,9 @@ void CSweepMineDlg::HeroRegiste()
 //
 void CSweepMineDlg::ComputeCellSpread()
 {
-    for (int i=0; i != m_uWideCellCount; ++i)
+    for (int i = 0; i != m_uWideCellCount; ++i)
     {
-        for (int j=0; j != m_uHeighCellCount; ++j)
+        for (int j = 0; j != m_uHeighCellCount; ++j)
         {
             if (m_ppCells[i][j].m_iStatus == ISMine)
             {
@@ -1234,7 +1234,7 @@ void CSweepMineDlg::ComputeCellSpread()
 
 void CSweepMineDlg::OnTimer(UINT_PTR nIDEvent)
 {
-    switch(nIDEvent)
+    switch (nIDEvent)
     {
     case Game_Timer:            // 游戏计时器.每1s记一次.
         if (!m_bGamePaused)
@@ -1281,7 +1281,7 @@ void CSweepMineDlg::DrawTimer()
     UINT uBltxPos = m_cuxOffset + (m_uCellWidth * m_uWideCellCount) / 2 + 60;
     UINT uBltyPos = 25;
 
-    for (int i=0; i != 4; ++i)
+    for (int i = 0; i != 4; ++i)
     {
         uBltxPos += BitmapInfo.bmWidth;
         dc.StretchBlt(
@@ -1296,6 +1296,7 @@ void CSweepMineDlg::DrawTimer()
             BitmapInfo.bmHeight / 11,
             SRCCOPY
             );
+
         if (i == 1)
         {
             // 贴出时钟分隔符.
@@ -1360,8 +1361,7 @@ BOOL CSweepMineDlg::PreTranslateMessage(MSG* pMsg)
     {
         if (pMsg->wParam == VK_ESCAPE)
         {
-            if (
-                IDYES == MessageBox(
+            if (IDYES == MessageBox(
                     _T("你真的要退出吗?"),
                     _T("退出"),
                     MB_YESNO | MB_ICONWARNING
